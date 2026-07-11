@@ -1,47 +1,105 @@
 # LRU Cache Simulator
 
-![LRU Cache Simulator Mockup](file:///Users/shivamagarwal/.gemini/antigravity-ide/brain/38df8a36-01d8-4afb-ae5b-404148dda166/lru_simulator_mockup_1782476565925.png)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://lru-cache-livid.vercel.app/)
+[![Hosted on Vercel](https://img.shields.io/badge/Hosted%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://lru-cache-livid.vercel.app/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![HTML5](https://img.shields.io/badge/HTML5-orange?style=for-the-badge&logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-blue?style=for-the-badge&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-A **modern, interactive LRU (Least Recently Used) cache visualizer** built with vanilla HTML, CSS, and JavaScript. The app demonstrates how an LRU cache works step‑by‑step, showing the underlying doubly‑linked list and hashmap structures, operation logs, hit/miss statistics, and O(1) time‑complexity guarantees.
+## 🌐 Live Demo
+
+🚀 **Try the application here:**
+
+https://lru-cache-livid.vercel.app/
+
+---
+
+## 📖 Overview
+
+The **LRU Cache Simulator** is a modern and interactive web application designed to visualize how the **Least Recently Used (LRU) Cache** algorithm works internally.
+
+The project demonstrates the complete working of an LRU cache using:
+
+- **HashMap** for O(1) lookup.
+- **Doubly Linked List** for O(1) insertion and deletion.
+- Real-time cache visualization.
+- Step-by-step cache updates.
+- Hit/Miss tracking and cache statistics.
+
+This project helps students and developers understand one of the most frequently asked data structures in technical interviews.
+
+---
 
 ## ✨ Features
-- **Dynamic visualization** of the cache's doubly‑linked list and hashmap.
-- **Interactive controls** for setting capacity, putting key/value pairs, and retrieving values.
-- Real‑time **operation log** and cache statistics (hits, misses, hit‑rate).
-- **Premium UI** with dark‑mode glassmorphism, gradients, and smooth micro‑animations.
-- Fully **responsive** – works on desktop and mobile browsers.
 
-## 🛠️ Technologies
-- **HTML5** – semantic structure
-- **Vanilla CSS** – custom design system (no frameworks)
-- **JavaScript (ES6+)** – core logic and animation handling
-- **Google Fonts – Inter** for clean, modern typography
+### 🔹 Dynamic Cache Visualization
+- Visual representation of cache nodes.
+- Displays the order of recently used and least recently used items.
+- Automatically updates after every operation.
 
-## 🚀 Quick Start
-1. Clone the repository or download the source.
-2. Open `index.html` directly in a web browser, or serve the folder with a simple HTTP server:
-   ```bash
-   # Using Python (already installed on macOS)
-   cd "/Users/shivamagarwal/Desktop/LRU Project"
-   python3 -m http.server 8000
-   ```
-3. Navigate to `http://localhost:8000` in your browser.
+### 🔹 HashMap Visualization
+- Shows key-to-node mapping.
+- Demonstrates how O(1) lookup is achieved.
 
-## 📂 Project Structure
-```
-LRU Project/
-├─ index.html          # Main page markup
-├─ style.css           # Premium UI styling (glassmorphism, gradients)
-├─ script.js           # LRU cache implementation & UI logic
-├─ fonts.css           # Font imports (Inter)
-└─ backend/            # Placeholder for future server‑side extensions
-```
+### 🔹 Interactive Operations
+Users can perform:
 
-## 🤝 Contributing
-Feel free to open issues or submit pull requests. Some ideas for improvement:
-- Add unit tests for the LRU core logic.
-- Implement a persistent backend (e.g., Node/Express) to store cache state.
-- Extend the UI with customizable themes.
+- `PUT(key, value)`
+- `GET(key)`
+- Change cache capacity dynamically.
+- Reset the cache.
 
-## 📜 License
-This project is released under the MIT License – see the `LICENSE` file for details.
+### 🔹 Operation Logs
+- Displays every operation performed.
+- Shows cache hits and misses.
+- Useful for understanding cache behavior.
+
+### 🔹 Statistics Dashboard
+Tracks:
+
+- Total Requests
+- Cache Hits
+- Cache Misses
+- Hit Rate Percentage
+
+### 🔹 Responsive UI
+- Desktop support
+- Tablet support
+- Mobile support
+
+### 🔹 Premium User Interface
+- Glassmorphism design
+- Smooth animations
+- Gradient effects
+- Dark mode inspired color palette
+
+---
+
+## 🧠 How LRU Cache Works
+
+The **Least Recently Used (LRU)** caching strategy removes the item that has not been accessed for the longest time when the cache becomes full.
+
+### Example
+
+Assume cache capacity = **3**
+
+| Operation | Cache State |
+|-----------|------------|
+| PUT(1,A) | 1 |
+| PUT(2,B) | 2 → 1 |
+| PUT(3,C) | 3 → 2 → 1 |
+| GET(1) | 1 → 3 → 2 |
+| PUT(4,D) | 4 → 1 → 3 |
+
+Since key **2** was the least recently used item, it gets removed.
+
+---
+
+## ⚙️ Internal Data Structures
+
+### 1. HashMap
+
+Stores:
+
+```text
+key -> Node reference
